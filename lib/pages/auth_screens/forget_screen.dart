@@ -75,7 +75,6 @@ class ForgetScreen extends StatelessWidget {
 
                         SizedBox(
                           height: h * 0.05,
-                          width: w * 0.66,
                           child: CustomButton(
                             onPressed: () {
                               Navigator.push(

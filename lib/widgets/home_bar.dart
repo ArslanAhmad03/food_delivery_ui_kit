@@ -5,7 +5,14 @@ import 'package:food_delivery_ui_kit/widgets/icon_box.dart';
 
 class HomeBar extends StatelessWidget {
   final VoidCallback onCartTap;
-  const HomeBar({super.key, required this.onCartTap});
+  final VoidCallback onNotifyTap;
+  final VoidCallback onProfileTap;
+  const HomeBar({
+    super.key,
+    required this.onCartTap,
+    required this.onNotifyTap,
+    required this.onProfileTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +72,11 @@ class HomeBar extends StatelessWidget {
           const SizedBox(width: 8),
           IconBox(onTap: onCartTap, imagePath: 'assets/svg/cart.svg'),
           const SizedBox(width: 4),
-          IconBox(onTap: () {}, imagePath: 'assets/svg/notification.svg'),
+          IconBox(onTap: onNotifyTap, imagePath: 'assets/svg/notification.svg'),
           const SizedBox(width: 4),
-          IconBox(onTap: () {}, imagePath: 'assets/svg/profile.svg'),
+          IconBox(onTap: onProfileTap, imagePath: 'assets/svg/profile.svg'),
         ],
       ),
     );
   }
 }
-

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:food_delivery_ui_kit/pages/app_route_screen.dart';
 import 'package:food_delivery_ui_kit/pages/auth_screens/forget_screen.dart';
 import 'package:food_delivery_ui_kit/pages/auth_screens/register_screen.dart';
-import 'package:food_delivery_ui_kit/pages/home_screen/home_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_button.dart';
 import 'package:food_delivery_ui_kit/utils/custom_navigator.dart';
@@ -100,7 +100,7 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                createRoute(widget: HomeScreen()),
+                                createRoute(widget: AppRouteScreen()),
                               );
                             },
                             text: 'Log In',
@@ -117,13 +117,6 @@ class LoginScreen extends StatelessWidget {
                           child: CustomText(text: 'Or'),
                         ),
 
-                        // IconContainer(
-                        //   onTap: () {},
-                        //   child: SvgPicture.asset(
-                        //     'assets/svg/finger_icon.svg',
-                        //     fit: BoxFit.contain,
-                        //   ),
-                        // ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery_ui_kit/pages/auth_screens/login_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_button.dart';
 import 'package:food_delivery_ui_kit/utils/custom_navigator.dart';
 import 'package:food_delivery_ui_kit/utils/custom_text.dart';
 import 'package:food_delivery_ui_kit/utils/custom_text_form_feild.dart';
-import 'package:food_delivery_ui_kit/utils/icon_container.dart';
 import 'package:food_delivery_ui_kit/utils/screen_size.dart';
 import 'package:food_delivery_ui_kit/widgets/top_row.dart';
 
@@ -110,12 +108,7 @@ class RegisterScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          createRoute(widget: RegisterScreen()),
-                                        );
-                                      },
+                                      onTap: () {},
                                       child: CustomText(
                                         text: 'Terms of Use',
                                         fontWeight: FontWeight.w800,
@@ -124,12 +117,7 @@ class RegisterScreen extends StatelessWidget {
                                     ),
                                     CustomText(text: " and "),
                                     GestureDetector(
-                                      onTap: () {
-                                        Navigator.push(
-                                          context,
-                                          createRoute(widget: RegisterScreen()),
-                                        );
-                                      },
+                                      onTap: () {},
                                       child: CustomText(
                                         text: 'Privacy Policy.',
                                         fontWeight: FontWeight.w800,
@@ -148,7 +136,9 @@ class RegisterScreen extends StatelessWidget {
                             height: h * 0.05,
                             width: w * 0.5,
                             child: CustomButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                               text: 'Sign Up',
                               borderRadius: 0.04,
                               textStyle: const TextStyle(fontSize: 24),
@@ -163,35 +153,6 @@ class RegisterScreen extends StatelessWidget {
                             child: CustomText(text: 'Or'),
                           ),
 
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: [
-                          //     IconContainer(
-                          //       onTap: () {},
-                          //       child: SvgPicture.asset(
-                          //         'assets/svg/gmail_icon.svg',
-                          //         fit: BoxFit.contain,
-                          //       ),
-                          //     ),
-                          //     SizedBox(width: 4),
-                          //     IconContainer(
-                          //       onTap: () {},
-                          //       child: SvgPicture.asset(
-                          //         'assets/svg/facebook_icon.svg',
-                          //         fit: BoxFit.contain,
-                          //       ),
-                          //     ),
-                          //     SizedBox(width: 4),
-                          //     IconContainer(
-                          //       onTap: () {},
-                          //       child: SvgPicture.asset(
-                          //         'assets/svg/finger_icon.svg',
-                          //         fit: BoxFit.contain,
-                          //       ),
-                          //     ),
-                          //   ],
-                          // ),
-                          // SizedBox(height: h * 0.02),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
