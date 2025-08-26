@@ -4,6 +4,7 @@ class OrderModel {
   final String time;
   final double price;
   final int items;
+  final String orderStatus;
 
   OrderModel({
     required this.image,
@@ -11,5 +12,6 @@ class OrderModel {
     required this.time,
     required this.price,
     required this.items,
+    required this.orderStatus,
   });
 }

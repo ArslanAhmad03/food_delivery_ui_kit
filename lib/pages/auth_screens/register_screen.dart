@@ -49,6 +49,7 @@ class RegisterScreen extends StatelessWidget {
                           CustomTextFormField(
                             label: 'Full Name',
                             hintText: 'elif la',
+                            keyboardType: TextInputType.text,
                           ),
 
                           SizedBox(height: h * 0.02),
@@ -56,6 +57,7 @@ class RegisterScreen extends StatelessWidget {
                           CustomTextFormField(
                             label: 'Email or Phone Number',
                             hintText: 'example@gmail.com',
+                            keyboardType: TextInputType.emailAddress,
                           ),
 
                           SizedBox(height: h * 0.02),
@@ -63,6 +65,7 @@ class RegisterScreen extends StatelessWidget {
                           CustomTextFormField(
                             label: 'Mobile Number',
                             hintText: '+923012345678',
+                            keyboardType: TextInputType.number,
                           ),
 
                           SizedBox(height: h * 0.02),
@@ -70,6 +73,7 @@ class RegisterScreen extends StatelessWidget {
                           CustomTextFormField(
                             label: 'Date of Birth',
                             hintText: 'example@gmail.com',
+                            keyboardType: TextInputType.text,
                           ),
 
                           SizedBox(height: h * 0.02),
@@ -78,6 +82,7 @@ class RegisterScreen extends StatelessWidget {
                             label: 'Password',
                             hintText: '********',
                             obscureText: true,
+                            keyboardType: TextInputType.text,
                             toggleObscureText: () {},
                           ),
 
@@ -87,6 +92,7 @@ class RegisterScreen extends StatelessWidget {
                             label: 'Confirm Password',
                             hintText: '********',
                             obscureText: true,
+                            keyboardType: TextInputType.text,
                             toggleObscureText: () {},
                           ),
 

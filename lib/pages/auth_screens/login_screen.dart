@@ -62,6 +62,7 @@ class LoginScreen extends StatelessWidget {
                         CustomTextFormField(
                           label: 'Email or Phone Number',
                           hintText: 'example@gmail.com',
+                          keyboardType: TextInputType.text,
                         ),
 
                         SizedBox(height: h * 0.02),
@@ -70,6 +71,7 @@ class LoginScreen extends StatelessWidget {
                           label: 'Password',
                           hintText: '********',
                           obscureText: true,
+                          keyboardType: TextInputType.text,
                           toggleObscureText: () {},
                         ),
 

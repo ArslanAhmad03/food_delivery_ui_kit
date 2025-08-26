@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui_kit/Model/order_model.dart';
 import 'package:food_delivery_ui_kit/pages/order_screens/order_cancel.dart';
+import 'package:food_delivery_ui_kit/pages/order_screens/review_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_button.dart';
 import 'package:food_delivery_ui_kit/utils/custom_navigator.dart';
@@ -62,19 +63,59 @@ class OrderItemCard extends StatelessWidget {
                     ),
                     SizedBox(height: 4),
                     CustomText(text: order.time),
-                    SizedBox(height: 6),
-                    CustomButton(
-                      text: 'Cancel Order',
-                      textStyle: TextStyle().copyWith(fontSize: 12),
-                      height: 0.035,
-                      borderRadius: 0.02,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          createRoute(widget: OrderCancel()),
-                        );
-                      },
+                    SizedBox(height: 3),
+                    Row(
+                      children: [
+                        Icon(
+                          order.orderStatus == 'Completed'
+                              ? Icons.check_circle_outline
+                              : order.orderStatus == 'Cancelled'
+                              ? Icons.cancel_outlined
+                              : null,
+                          color: AppColors.orangeBase,
+                          size: 13,
+                        ),
+                        SizedBox(width: 4),
+                        CustomText(
+                          text: order.orderStatus == 'Completed'
+                              ? 'Order Delivered'
+                              : order.orderStatus == 'Cancelled'
+                              ? 'Order Cencelled'
+                              : '',
+                          color: AppColors.orangeBase,
+                          fontSize: 12,
+                        ),
+                      ],
                     ),
+                    SizedBox(height: 3),
+
+                    if (order.orderStatus == 'Active') ...[
+                      CustomButton(
+                        text: 'Cancel Order',
+                        textStyle: TextStyle().copyWith(fontSize: 12),
+                        height: 0.035,
+                        borderRadius: 0.02,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            createRoute(widget: OrderCancel()),
+                          );
+                        },
+                      ),
+                    ] else if (order.orderStatus == 'Completed') ...[
+                      CustomButton(
+                        text: 'Leave a review',
+                        textStyle: TextStyle().copyWith(fontSize: 12),
+                        height: 0.035,
+                        borderRadius: 0.02,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            createRoute(widget: ReviewScreen(orderItem: order)),
+                          );
+                        },
+                      ),
+                    ],
                   ],
                 ),
               ),
@@ -92,16 +133,34 @@ class OrderItemCard extends StatelessWidget {
                   ),
                   SizedBox(height: 4),
                   CustomText(text: '${order.items} Items'),
-                  SizedBox(height: 6),
-                  CustomButton(
-                    text: 'Track Driver',
-                    textStyle: TextStyle().copyWith(fontSize: 12),
-                    height: 0.035,
-                    borderRadius: 0.02,
-                    textColor: AppColors.orangeBase,
-                    backgroundColor: AppColors.orange2,
-                    onPressed: () {},
-                  ),
+                  SizedBox(height: 3),
+                  CustomText(text: ''),
+                  SizedBox(height: 3),
+
+                  if (order.orderStatus == 'Active') ...[
+                    CustomButton(
+                      text: 'Track Driver',
+                      textStyle: TextStyle().copyWith(fontSize: 12),
+                      height: 0.035,
+                      borderRadius: 0.02,
+                      textColor: AppColors.orangeBase,
+                      backgroundColor: AppColors.orange2,
+                      onPressed: () {},
+                    ),
+                  ] else if (order.orderStatus == 'Completed') ...[
+                    CustomButton(
+                      text: 'Order Again',
+                      textStyle: TextStyle().copyWith(fontSize: 12),
+                      height: 0.035,
+                      borderRadius: 0.02,
+                      onPressed: () {
+                        // Navigator.push(
+                        //   context,
+                        //   createRoute(widget: OrderCancel()),
+                        // );
+                      },
+                    ),
+                  ],
                 ],
               ),
             ],

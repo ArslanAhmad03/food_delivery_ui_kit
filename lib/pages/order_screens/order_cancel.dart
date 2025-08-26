@@ -40,10 +40,9 @@ class _OrderCancelState extends State<OrderCancel> {
             // Body
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: h * 0.02),
                 child: Container(
                   width: double.infinity,
-                  height: h * 0.9,
                   decoration: BoxDecoration(
                     color: AppColors.font2,
                     borderRadius: const BorderRadius.only(
@@ -52,15 +51,12 @@ class _OrderCancelState extends State<OrderCancel> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 16,
-                      left: 20,
-                      right: 20,
-                      bottom: 4,
-                    ),
+                    padding: EdgeInsets.all(w * 0.05),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        SizedBox(height: h * 0.02),
+
                         Center(
                           child: CustomText(
                             text: 'Select a reason to cancel your order',
@@ -116,9 +112,8 @@ class _OrderCancelState extends State<OrderCancel> {
                           Container(
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: Colors.grey.shade300),
+                              color: AppColors.orange2,
+                              borderRadius: BorderRadius.circular(20),
                             ),
                             child: TextField(
                               controller: otherController,
@@ -128,7 +123,7 @@ class _OrderCancelState extends State<OrderCancel> {
                                 fontSize: 18,
                               ),
                               decoration: const InputDecoration(
-                                hintText: "Write your reason here...",
+                                hintText: "Others reason...",
                                 hintStyle: TextStyle(
                                   color: AppColors.orangeBase,
                                   fontSize: 18,
@@ -137,9 +132,12 @@ class _OrderCancelState extends State<OrderCancel> {
                               ),
                             ),
                           ),
+                          SizedBox(height: h * 0.06),
+                        ] else ...[
+                          SizedBox(height: h * 0.2),
                         ],
 
-                        SizedBox(height: w * 0.2),
+                        SizedBox(height: h * 0.06),
 
                         // Submit Button
                         CustomButton(
@@ -171,13 +169,15 @@ class _OrderCancelState extends State<OrderCancel> {
                             Future.delayed(Duration(milliseconds: 1200)).then((
                               _,
                             ) {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 createRoute(widget: OrderCancelled()),
                               );
                             });
                           },
                         ),
+
+                        SizedBox(height: h * 0.02),
 
                         //
                       ],

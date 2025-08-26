@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_ui_kit/Model/drawer_model.dart';
+import 'package:food_delivery_ui_kit/pages/address/delivery_address.dart';
+import 'package:food_delivery_ui_kit/pages/contact_us/contact_us.dart';
+import 'package:food_delivery_ui_kit/pages/faqs/help_faqs.dart';
 import 'package:food_delivery_ui_kit/pages/order_screens/order_screen.dart';
+import 'package:food_delivery_ui_kit/pages/payment/payment_screen.dart';
+import 'package:food_delivery_ui_kit/pages/profile/my_profile.dart';
+import 'package:food_delivery_ui_kit/pages/setting_screen/setting_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_navigator.dart';
 import 'package:food_delivery_ui_kit/utils/custom_text.dart';
 import 'package:food_delivery_ui_kit/utils/screen_size.dart';
+import 'package:food_delivery_ui_kit/widgets/cus_bottom_sheet.dart';
 import 'package:food_delivery_ui_kit/widgets/icon_box.dart';
 
 class ProfileDrawer extends StatefulWidget {
@@ -16,55 +23,66 @@ class ProfileDrawer extends StatefulWidget {
 }
 
 class _ProfileDrawerState extends State<ProfileDrawer> {
-  final List<DrawerItem> drawerItems = [
-    DrawerItem(
-      iconPath: 'assets/svg/order.svg',
-      title: 'My Orders',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/profile.svg',
-      title: 'My Profile',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/location.svg',
-      title: 'Delivery Address',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/wallet.svg',
-      title: 'Payment Methods',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/contact.svg',
-      title: 'Contact Us',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/chat.svg',
-      title: 'Help & FAQs',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/setting.svg',
-      title: 'Settings',
-      screen: OrderScreen(),
-    ),
-    DrawerItem(
-      iconPath: 'assets/svg/logout.svg',
-      title: 'Log Out',
-      screen: OrderScreen(),
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
     final h = ScreenSize.height(context);
     final w = ScreenSize.width(context);
 
     final panelWidth = (w * 0.78).clamp(260.0, 420.0);
+
+    final List<DrawerItem> drawerItems = [
+      DrawerItem(
+        iconPath: 'assets/svg/order.svg',
+        title: 'My Orders',
+        screen: OrderScreen(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/profile.svg',
+        title: 'My Profile',
+        screen: MyProfileScreen(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/location.svg',
+        title: 'Delivery Address',
+        screen: DeliveryAddress(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/wallet.svg',
+        title: 'Payment Methods',
+        screen: PaymentScreen(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/contact.svg',
+        title: 'Contact Us',
+        screen: ContactUs(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/chat.svg',
+        title: 'Help & FAQs',
+        screen: HelpFaqs(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/setting.svg',
+        title: 'Settings',
+        screen: SettingScreen(),
+      ),
+      DrawerItem(
+        iconPath: 'assets/svg/logout.svg',
+        title: 'Log Out',
+        onTap: () {
+          showModalBottomSheet(
+            context: context,
+            backgroundColor: Colors.white,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            ),
+            builder: (_) {
+              return CusBottomSheet();
+            },
+          );
+        },
+      ),
+    ];
 
     return AnimatedSlide(
       offset: widget.showDrawer ? Offset.zero : const Offset(1, 0),
@@ -122,10 +140,14 @@ class _ProfileDrawerState extends State<ProfileDrawer> {
                         final item = drawerItems[index];
                         return InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              createRoute(widget: item.screen),
-                            );
+                            if (item.onTap != null) {
+                              item.onTap!();
+                            } else if (item.screen != null) {
+                              Navigator.push(
+                                context,
+                                createRoute(widget: item.screen!),
+                              );
+                            }
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 12),

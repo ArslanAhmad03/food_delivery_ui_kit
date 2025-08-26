@@ -91,6 +91,24 @@ class _CustomGridCardState extends State<CustomGridCard> {
       favourite: false,
     ),
     ItemsModel(
+      price: '23.0',
+      imagepath: 'assets/images/noodles.png',
+      rating: '4.5',
+      favourite: false,
+    ),
+    ItemsModel(
+      price: '17.0',
+      imagepath: 'assets/images/pizza.png',
+      rating: '4.1',
+      favourite: true,
+    ),
+    ItemsModel(
+      price: '40.0',
+      imagepath: 'assets/images/rum.png',
+      rating: '5.0',
+      favourite: false,
+    ),
+    ItemsModel(
       price: '21.0',
       imagepath: 'assets/images/burger01.png',
       rating: '4.2',
