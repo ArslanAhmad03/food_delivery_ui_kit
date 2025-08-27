@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_delivery_ui_kit/pages/help_screen/help_screen.dart';
 import 'package:food_delivery_ui_kit/pages/home_screen/home_screen.dart';
+import 'package:food_delivery_ui_kit/pages/order_screens/order_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
+import 'package:food_delivery_ui_kit/widgets/favourite_items.dart';
+import 'package:food_delivery_ui_kit/widgets/order_history_screen.dart';
 
 class AppRouteScreen extends StatefulWidget {
   const AppRouteScreen({super.key});
@@ -16,10 +20,10 @@ class _AppRouteScreenState extends State<AppRouteScreen> {
 
   final List listScreens = [
     HomeScreen(),
-    Center(child: Text('Orders')),
-    Center(child: Text('Favourites')),
-    Center(child: Text('Menu')),
-    Center(child: Text('Help')),
+    OrderScreen(),
+    FavouriteItems(),
+    OrderHistoryScreen(),
+    HelpScreen(),
   ];
 
   final List<String> icons = [

@@ -6,7 +6,8 @@ import 'package:food_delivery_ui_kit/utils/screen_size.dart';
 
 class SliverTopRow extends StatelessWidget {
   final String title;
-  const SliverTopRow({super.key, required this.title});
+  final bool isShow;
+  const SliverTopRow({super.key, required this.title, this.isShow = true});
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +23,25 @@ class SliverTopRow extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GestureDetector(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: SizedBox(
-                height: 24,
-                width: 24,
-                child: SvgPicture.asset(
-                  'assets/svg/backIcon.svg',
-                  height: 20,
-                  width: 20,
-                  fit: BoxFit.contain,
+            if (isShow) ...[
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: SvgPicture.asset(
+                    'assets/svg/backIcon.svg',
+                    height: 20,
+                    width: 20,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-            ),
+            ] else ...[
+              SizedBox(height: 24, width: 24),
+            ],
             SizedBox(
               width: w * 0.7,
               height: w * 0.12,

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:food_delivery_ui_kit/pages/filter_screen/filter_screen.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
+import 'package:food_delivery_ui_kit/utils/custom_navigator.dart';
 import 'package:food_delivery_ui_kit/widgets/icon_box.dart';
 
 class HomeBar extends StatelessWidget {
@@ -48,7 +50,12 @@ class HomeBar extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
-                    onTap: () => debugPrint('filter'),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        createRoute(widget: FilterScreen()),
+                      );
+                    },
                     child: Container(
                       height: 24,
                       width: 24,

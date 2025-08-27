@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_delivery_ui_kit/Model/order_model.dart';
+import 'package:food_delivery_ui_kit/data/app_data.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_button.dart';
 import 'package:food_delivery_ui_kit/utils/custom_text.dart';
@@ -16,63 +17,12 @@ class OrderScreen extends StatefulWidget {
 }
 
 class _OrderScreenState extends State<OrderScreen> {
-  final orders = [
-    OrderModel(
-      image: 'assets/images/burger01.png',
-      title: 'Burger',
-      time: '14 Nov, 04:20 pm',
-      price: 05.0,
-      items: 4,
-      orderStatus: 'Active',
-    ),
-    OrderModel(
-      image: 'assets/images/image02.png',
-      title: 'Chicken Curry',
-      time: '15 Nov, 11:20 pm',
-      price: 40.0,
-      items: 2,
-      orderStatus: 'Completed',
-    ),
-    OrderModel(
-      image: 'assets/images/coca_cola.png',
-      title: 'Coke',
-      time: '16 Nov, 01:20 pm',
-      price: 12.0,
-      items: 2,
-      orderStatus: 'Active',
-    ),
-    OrderModel(
-      image: 'assets/images/image04.png',
-      title: 'Strawberry Shake',
-      time: '17 Nov, 01:20 am',
-      price: 15.0,
-      items: 2,
-      orderStatus: 'Cancelled',
-    ),
-    OrderModel(
-      image: 'assets/images/grilled.png',
-      title: 'Grilled',
-      time: '18 Nov, 01:10 pm',
-      price: 20.0,
-      items: 2,
-      orderStatus: 'Cancelled',
-    ),
-    OrderModel(
-      image: 'assets/images/noodle.png',
-      title: 'Noddle',
-      time: '19 Nov, 01:20 pm',
-      price: 20.0,
-      items: 2,
-      orderStatus: 'Active',
-    ),
-  ];
-
   bool isData = false;
   String selectedTab = 'Active';
 
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2)).then((_) {
+    Future.delayed(Duration(seconds: 1)).then((_) {
       if (!mounted) return;
       setState(() {
         isData = true;
@@ -100,7 +50,7 @@ class _OrderScreenState extends State<OrderScreen> {
         child: CustomScrollView(
           slivers: [
             // ap bar
-            SliverTopRow(title: 'My Orders'),
+            SliverTopRow(isShow: false, title: 'My Orders'),
 
             // // body
             SliverToBoxAdapter(

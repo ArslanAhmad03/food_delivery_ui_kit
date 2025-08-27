@@ -6,23 +6,34 @@ import 'package:food_delivery_ui_kit/utils/custom_text.dart';
 class CategoryItem extends StatelessWidget {
   final String name;
   final String iconPath;
+  final VoidCallback onTap;
+  final bool isSelected;
 
-  const CategoryItem({super.key, required this.name, required this.iconPath});
+  const CategoryItem({
+    super.key,
+    required this.name,
+    required this.iconPath,
+    required this.onTap,
+    this.isSelected = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.yellow2,
-            borderRadius: BorderRadius.circular(60),
-          ),
-          child: SizedBox(
-            height: 60,
-            width: 50,
-            child: Center(
-              child: SvgPicture.asset(iconPath, fit: BoxFit.contain),
+        GestureDetector(
+          onTap: onTap,
+          child: Container(
+            decoration: BoxDecoration(
+              color: isSelected ? AppColors.yellowBase : AppColors.yellow2,
+              borderRadius: BorderRadius.circular(60),
+            ),
+            child: SizedBox(
+              height: 60,
+              width: 50,
+              child: Center(
+                child: SvgPicture.asset(iconPath, fit: BoxFit.contain),
+              ),
             ),
           ),
         ),

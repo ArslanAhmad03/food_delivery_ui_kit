@@ -73,7 +73,6 @@ class UpdateAddress extends StatelessWidget {
 
                         CustomButton(
                           text: 'Apply',
-                          borderRadius: 0.04,
                           onPressed: () {
                             Navigator.pop(context);
                           },

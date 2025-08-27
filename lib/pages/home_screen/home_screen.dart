@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery_ui_kit/pages/home_screen/home_body.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';
 import 'package:food_delivery_ui_kit/utils/custom_text.dart';
-import 'package:food_delivery_ui_kit/utils/screen_size.dart';
 import 'package:food_delivery_ui_kit/widgets/cart_drawer.dart';
 import 'package:food_delivery_ui_kit/widgets/home_bar.dart';
 import 'package:food_delivery_ui_kit/widgets/notify_drawer.dart';
@@ -28,12 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final h = ScreenSize.height(context);
-    final w = ScreenSize.width(context);
     return Scaffold(
       body: Stack(
         children: [
-          //
           CustomScrollView(
             slivers: [
               // appbar

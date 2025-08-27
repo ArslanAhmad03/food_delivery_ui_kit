@@ -117,7 +117,6 @@ class _DeliveryAddressState extends State<DeliveryAddress> {
                         if (selectedIndex != null)
                           CustomButton(
                             text: 'Edit Selected Address',
-                            borderRadius: 0.04,
                             onPressed: () {
                               Navigator.push(
                                 context,

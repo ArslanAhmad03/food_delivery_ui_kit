@@ -58,6 +58,7 @@ class _AddCardState extends State<AddCard> {
                         CustomTextFormField(
                           label: 'Card Number',
                           hintText: '0000 0000 0000 0000',
+                          keyboardType: TextInputType.number,
                         ),
 
                         SizedBox(height: h * 0.03),
@@ -70,6 +71,7 @@ class _AddCardState extends State<AddCard> {
                               child: CustomTextFormField(
                                 label: 'Expiry Date',
                                 hintText: '04/28',
+                                keyboardType: TextInputType.number,
                               ),
                             ),
 
@@ -80,6 +82,7 @@ class _AddCardState extends State<AddCard> {
                               child: CustomTextFormField(
                                 label: 'CVV',
                                 hintText: '000',
+                                keyboardType: TextInputType.number,
                               ),
                             ),
                             SizedBox(width: 100),
@@ -91,7 +94,6 @@ class _AddCardState extends State<AddCard> {
                         //
                         CustomButton(
                           text: 'Save Card',
-                          // borderRadius: 0.04,
                           onPressed: () {
                             Navigator.pop(context);
                           },
