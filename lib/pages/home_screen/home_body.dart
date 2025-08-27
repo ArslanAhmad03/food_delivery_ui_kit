@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_delivery_ui_kit/Model/cart_model.dart';
 import 'package:food_delivery_ui_kit/Model/category_model.dart';
 import 'package:food_delivery_ui_kit/data/app_data.dart';
 import 'package:food_delivery_ui_kit/theme/app_colors.dart';

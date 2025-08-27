@@ -1,16 +1,26 @@
-# food_delivery_ui_kit
+FoodApp UI Kit
+Welcome to FoodApp UI Kit — a modern and clean Flutter UI kit designed for building food delivery and restaurant apps for Android and iOS. The design focuses on beautiful UI, easy customization, and responsive layouts, perfect for developers who want to save time and build professional apps quickly.
 
-A new Flutter project.
+Featured Project: FoodApp UI Kit
+A ready-to-use Flutter UI kit that includes all essential screens and components for food delivery apps:
 
-## Getting Started
+Home Screen with categories and featured items
 
-This project is a starting point for a Flutter application.
+Menu & Product Details with appealing layout
 
-A few resources to get you started if this is your first Flutter project:
+Cart & Checkout screens
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Order Tracking & History
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Profile & Settings
+
+Key Features
+Real-time order tracking
+
+Multiple payment options
+
+In-app chat support
+
+Contactless delivery
+
+Fully responsive and customizable design
